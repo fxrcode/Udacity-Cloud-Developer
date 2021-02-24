@@ -3,5 +3,5 @@
 
 ## Projects
 
-* [ ] project 1: Deploy static website on AWS
+* [x] project 1: Deploy static website on AWS
 * [ ] project 2: 
