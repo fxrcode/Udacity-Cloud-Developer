@@ -18,6 +18,17 @@ router.get('/', async (req: Request, res: Response) => {
 
 //@TODO
 //Add an endpoint to GET a specific resource by Primary Key
+router.get('/:id',
+    requireAuth,
+    async (req: Request, res: Response) => {
+        let { id } = req.params;
+        const item = await FeedItem.findByPk(id);
+        if (item == null) {
+            return res.status(400).send(`cant find item: ${id}`);
+        }
+        // found item: [object SequelizeInstance:FeedItem]
+        return res.status(200).send(item); // send(`found item: ${item}`);
+    })
 
 // update a specific resource
 router.patch('/:id', 
