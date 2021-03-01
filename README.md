@@ -3,5 +3,6 @@
 
 ## Projects
 
-* [x] project 1: Deploy static website on AWS
-* [ ] project 2: 
+* [x] Project 1: Deploy static website on AWS
+* [ ] Project 2: Udagram: Your own Instagram on AWS
+ 
