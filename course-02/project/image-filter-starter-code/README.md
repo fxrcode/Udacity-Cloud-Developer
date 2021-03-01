@@ -14,4 +14,4 @@
 ## Verification
 * used postmane to GET ebs endpoint to filter image: `http://image-filter-starter-code-dev.us-west-1.elasticbeanstalk.com/filteredimage?image_url=https://i.ytimg.com/vi/n9sLZPLOxG8/maxresdefault.jpg`
     * got from YouTube: How do transformers work? (Attention is all you need)
-    * ![img](../deployment_screenshots/Screenshot from 2021-03-01 13-59-15.png)
+    * ![img](/deployment_screenshots/Screenshot from 2021-03-01 13-59-15.png)
