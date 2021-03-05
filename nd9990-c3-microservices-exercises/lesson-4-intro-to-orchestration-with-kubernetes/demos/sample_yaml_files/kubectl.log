@@ -214,3 +214,62 @@ Events:
 (base) 
 # fxrc @ popos in ~/Downloads [22:46:25] 
 
+
+
+# kubectl delete -f deploy.yaml
+# fxrc @ popos in ~ [22:54:35]
+$ kubectl describe po my-app-8486b5cf9b-l42k7
+Name:                      my-app-8486b5cf9b-l42k7
+Namespace:                 default
+Priority:                  0
+Node:                      popos/192.168.1.228
+Start Time:                Thu, 04 Mar 2021 22:41:06 -0800
+Labels:                    app=my-app
+                           pod-template-hash=8486b5cf9b
+Annotations:               <none>
+Status:                    Terminating (lasts <invalid>)
+Termination Grace Period:  30s
+IP:                        10.42.0.8 
+IPs:
+  IP:           10.42.0.8
+Controlled By:  ReplicaSet/my-app-8486b5cf9b
+Containers:
+  simple-node:
+    Container ID:   docker://959e9e7c25c59de012aafd36e69069f763f64df90e71b4fee97ec95a14bd42a8
+    Image:          mathson/simple-node
+    Image ID:       docker-pullable://mathson/simple-node@sha256:2b150fa962b2b476ca40a5ab7063ea38654376800ed12fdf29c808eaacee2842
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Thu, 04 Mar 2021 22:44:02 -0800
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-rwpnw (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  default-token-rwpnw:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-rwpnw 
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From            Message
+  ----    ------     ----  ----            -------
+  Normal  Scheduled  13m                   Successfully assigned default/my-app-8486b5cf9b-l42k7 to popos
+  Normal  Pulling    13m   kubelet, popos  Pulling image "mathson/simple-node"
+  Normal  Pulled     10m   kubelet, popos  Successfully pulled image "mathson/simple-node" in 2m55.480243612s
+  Normal  Created    10m   kubelet, popos  Created container simple-node
+  Normal  Started    10m   kubelet, popos  Started container simple-node
+  Normal  Killing    23s   kubelet, popos  Stopping container simple-node 
+
+# kubectl delete -f service.yaml
