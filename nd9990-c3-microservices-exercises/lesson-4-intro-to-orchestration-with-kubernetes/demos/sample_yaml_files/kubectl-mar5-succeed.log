@@ -1,0 +1,51 @@
+# fxrc @ popos in ~ [21:06:56]
+$ echo $KUBECONFIG    
+/home/fxrc/.kube/config
+
+# fxrc @ popos in ~ [20:23:08] C:1
+$ eksctl create cluster \
+--name Demo \
+> --version 1.19 \
+> --with-oidc \
+> --without-nodegroup
+
+# fxrc @ popos in ~ [21:31:46]
+$ eksctl create nodegroup \
+  --cluster Demo \
+  --region us-west-1 \
+  --name Demo \
+  --node-type t3.micro \
+  --nodes 2 \
+  --nodes-min 2 \
+  --nodes-max 2 \
+  --node-volume-size 10 \
+  --ssh-access \
+  --ssh-public-key udagram-vid \
+  --managed
+
+(base)
+# fxrc @ popos in ~/Learn/UdacityNanodegree/Udacity-Cloud-Developer/nd9990-c3-microservices-exercises/lesson-4-intro-to-orchestration-with-kubernetes/demos/sample_yaml_files on git:main o [21:42:48]                           
+$ kubectl describe deployment                                                                                                                                                                                                    
+(base)                                                                                                                                                                                         
+# fxrc @ popos in ~/Learn/UdacityNanodegree/Udacity-Cloud-Developer/nd9990-c3-microservices-exercises/lesson-4-intro-to-orchestration-with-kubernetes/demos/sample_yaml_files on git:main o [21:43:04] C:130                     
+$ kubectl apply -f service.yaml                                                                                                                                                                                                  
+service/my-app created                                                                                                                                                       
+(base)                                                                                                                                                                       
+# fxrc @ popos in ~/Learn/UdacityNanodegree/Udacity-Cloud-Developer/nd9990-c3-microservices-exercises/lesson-4-intro-to-orchestration-with-kubernetes/demos/sample_yaml_files on git:main o [21:43:09]                           
+$ kubectl get pod --all-namespaces -o wide                                                                                                                                   
+NAMESPACE     NAME                      READY   STATUS    RESTARTS   AGE     IP               NODE                                           NOMINATED NODE   READINESS GATES                                                                                 
+default       my-app-8486b5cf9b-59dg8   1/1     Running   0          40s     192.168.67.60    ip-192-168-72-223.us-west-1.compute.internal   <none>           <none>                                                                                          
+default       my-app-8486b5cf9b-gkqw5   1/1     Running   0          40s     192.168.45.119   ip-192-168-56-73.us-west-1.compute.internal    <none>           <none>                                                                                          
+kube-system   aws-node-7htbw            1/1     Running   0          9m17s   192.168.72.223   ip-192-168-72-223.us-west-1.compute.internal   <none>           <none>                                                                                          
+kube-system   aws-node-zpd48            1/1     Running   0          9m17s   192.168.56.73    ip-192-168-56-73.us-west-1.compute.internal    <none>           <none>                                                                                          
+kube-system   coredns-9747b5cfd-9mkc5   1/1     Running   0          20m     192.168.93.32    ip-192-168-72-223.us-west-1.compute.internal   <none>           <none>                                                                                          
+kube-system   coredns-9747b5cfd-sqvvx   1/1     Running   0          20m     192.168.33.20    ip-192-168-56-73.us-west-1.compute.internal    <none>           <none>                                                                                          
+kube-system   kube-proxy-d7wcb          1/1     Running   0          9m17s   192.168.72.223   ip-192-168-72-223.us-west-1.compute.internal   <none>           <none>                                                                                          
+kube-system   kube-proxy-djzl8          1/1     Running   0          9m17s   192.168.56.73    ip-192-168-56-73.us-west-1.compute.internal    <none>           <none>   
+
+# fxrc @ popos in ~/Learn/UdacityNanodegree/Udacity-Cloud-Developer/nd9990-c3-microservices-exercises/lesson-4-intro-to-orchestration-
+with-kubernetes/demos/sample_yaml_files on git:main o [21:44:59]   
+$ kubectl logs my-app-8486b5cf9b-59dg8                                                                                                
+Microservices rock: undefined                                      
+Microservices rock: undefined                                      
+Microservices rock: undefined
