@@ -1,0 +1,27 @@
+# fxrc @ popos in ~/Learn/UdacityNanodegree/Udacity-Cloud-Developer/nd9990-c3-microservices-exercises/lesson-5-kubernetes-for-production/exercises/debugging-logs on git:main o [23:54:42]
+$ docker exec -it b9c2 sh 
+# ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.2  0.1 597040 36864 ?        Ssl  07:52   0:00 node server.js > output.log &
+root          13  1.0  0.0   4284   772 pts/0    Ss   07:54   0:00 sh
+root          19  0.0  0.0  36640  2832 pts/0    R+   07:55   0:00 ps aux
+# ls     
+Dockerfile  README.md  make_requests.sh  node_modules  package-lock.json  package.json  server.js
+# ./make_requests.sh
+# 
+
+
+
+# fxrc @ popos in ~/Learn/UdacityNanodegree/Udacity-Cloud-Developer/nd9990-c3-microservices-exercises/lesson-5-kubernetes-for-production/exercises/debugging-logs on git:main o [23:51:52]
+$ docker run debugging-logs
+Server running on port 8080
+3/7/2021, 7:55:14 AM: a12b85f4-7ff3-4df0-9131-125f0de9fe11 - User fxrc requested for resource
+3/7/2021, 7:55:15 AM: 79100df4-8812-466d-8783-ebb0f6d183f8 - User fxrc requested for resource
+3/7/2021, 7:55:16 AM: 946e8de3-35c7-4f19-b499-54e0c160bae1 - User fxrc requested for resource
+3/7/2021, 7:55:16 AM: a12b85f4-7ff3-4df0-9131-125f0de9fe11 - Finished processing request for fxrc
+3/7/2021, 7:55:17 AM: 3788dd8a-98f9-41cc-91ac-994c203ecc29 - User fxrc requested for resource
+3/7/2021, 7:55:22 AM: 79100df4-8812-466d-8783-ebb0f6d183f8 - Finished processing request for fxrc
+3/7/2021, 7:55:23 AM: 946e8de3-35c7-4f19-b499-54e0c160bae1 - Finished processing request for fxrc
+3/7/2021, 7:55:26 AM: 3788dd8a-98f9-41cc-91ac-994c203ecc29 - Finished processing request for fxrc
+
+
