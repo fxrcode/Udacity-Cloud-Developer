@@ -5,4 +5,5 @@
 
 * [x] Project 1: Deploy static website on AWS
 * [x] Project 2: Udagram: Your own Instagram on AWS
-* [ ] Project 3: Refactor Monolith to Microservices and Deploy 
+* [x] Project 3: Refactor Monolith to Microservices and Deploy 
+* [ ] Project 4: 
