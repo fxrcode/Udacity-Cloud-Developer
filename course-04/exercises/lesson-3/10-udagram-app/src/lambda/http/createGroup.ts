@@ -1,5 +1,5 @@
 import { APIGatewayProxyEvent, APIGatewayProxyHandler, APIGatewayProxyResult } from "aws-lambda"
-
+import 'source-map-support/register'
 const AWS = require('aws-sdk')
 const uuid = require('uuid')
 
