@@ -1,4 +1,3 @@
-// copied from lesson-3 starter-code's src/lambda/http/getGroups.ts
 import { APIGatewayProxyHandler, APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
 import 'source-map-support/register'
 import * as AWS  from 'aws-sdk'
