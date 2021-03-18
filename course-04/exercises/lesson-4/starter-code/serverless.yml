@@ -135,6 +135,17 @@ functions:
 
   ResizeImage:
     handler: src/lambda/s3/resizeImage.handler
+    events:
+      - sns:
+          arn:
+            Fn::Join:
+              - ':'
+              - - arn:aws:sns
+                - Ref: AWS::Region
+                - Ref: AWS::AcountId
+                - ${self:custom.topicName}  # same event into SendUploadNotifications (aka: ws-notification) lambda
+          topicName: ${self:custom.topicName}
+
 
   ConnectHandler:
     handler: src/lambda/websocket/connect.handler
