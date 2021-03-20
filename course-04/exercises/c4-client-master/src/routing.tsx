@@ -6,7 +6,7 @@ import createHistory from 'history/createBrowserHistory'
 import App from './App';
 const history = createHistory()
 
-const auth = new Auth(history)
+const auth = new Auth(history)   // create an Auth object that contains access token that our app should pass when it sends API requests.
 
 const handleAuthentication = (props: any) => {
   const location = props.location
