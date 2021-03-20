@@ -20,7 +20,7 @@ export const makeAuthRouting = () => {
     <Router history={history}>
       <div>
         <Route
-          path="/callback"
+          path="/callback"   // Demo special route for Auth0 redirect for token
           render={props => {
             handleAuthentication(props)
             return <Callback />
