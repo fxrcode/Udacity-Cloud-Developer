@@ -26,7 +26,7 @@ export const makeAuthRouting = () => {
             return <Callback />
           }}
         />
-        <Route
+        <Route  // this is general route for everything else
           render={props => {
             return <App auth={auth} {...props} />
           }}
