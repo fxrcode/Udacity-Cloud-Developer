@@ -59,7 +59,7 @@ function verifyToken(authHeader: string, secret: string): JwtToken {
   const split = authHeader.split(' ')
   const token = split[1]
 
-  return verify(token, secret) as JwtToken
+  return verify(token, secret) as JwtToken  // need to copy client secret from Auth0 page, and put in serverless
 }
 
 handler.use(
