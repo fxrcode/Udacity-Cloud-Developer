@@ -9,6 +9,7 @@ import { JwtToken } from '../../auth/JwtToken'
 const secretId = process.env.AUTH_0_SECRET_ID
 const secretField = process.env.AUTH_0_SECRET_FIELD
 
+// need to use context where middy stored secret
 export const handler = middy(async (event: CustomAuthorizerEvent, context): Promise<CustomAuthorizerResult> => {
   try {
     const decodedToken = verifyToken(
