@@ -1,7 +1,7 @@
-export const apiEndpoint = '...'
+export const apiEndpoint = 'https://tgdmbodyig.execute-api.us-east-1.amazonaws.com/dev'
 
 export const authConfig = {
-  domain: '...',
-  clientId: '...',
+  domain: 'dev-r-c1y0ps.us.auth0.com',
+  clientId: 'ysut68ElQGs5NSy94yJl4NOt93zz6y3I',
   callbackUrl: 'http://localhost:3000/callback'
 }
