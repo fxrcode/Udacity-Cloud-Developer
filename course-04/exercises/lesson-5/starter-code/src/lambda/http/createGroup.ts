@@ -11,10 +11,9 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
   console.log('Processing event: ', event)
   const itemId = uuid.v4()
 
-  const authorization = event.headers.authorization
+  const authorization = event.headers.Authorization
   const split = authorization.split(' ')
   const jwtToken = split[1]
-
   const parsedBody = JSON.parse(event.body)
 
   const newItem = {
