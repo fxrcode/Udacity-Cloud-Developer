@@ -43,7 +43,7 @@ export async function deleteTodo(
     // validate user
     await validateUser(userId, todoId)
 
-    await dbAccess.deleteTodo(todoId)
+    await dbAccess.deleteTodo(userId, todoId)
 }
 
 export async function getUploadUrl(userId: string, todoId: string): Promise<string> {
@@ -54,10 +54,12 @@ export async function getUploadUrl(userId: string, todoId: string): Promise<stri
 
     // write attachment url to DB
     const attachmentUrl = s3Access.getAttachmentUrl(todoId)
+    LOG.info(`got attachmentUrl for upload : ${attachmentUrl}`)
     await dbAccess.updateAttachmentUrl(userId, todoId, attachmentUrl)
 
     // return SignedURL
     const uploadUrl = await s3Access.getUploadUrl(todoId)
+    LOG.info(`signedURL: ${uploadUrl}`)
     return uploadUrl
 }
 
@@ -77,7 +79,7 @@ export async function updateTodo(userId: string, todoId: string, todoUpdate: Upd
 
 // this is helper function
 async function validateUser(userId: string, todoId: string) {
-    const todo = await dbAccess.getTodo(todoId)
+    const todo = await dbAccess.getTodo(userId, todoId)
 
     if (!todo)
         throw new Error(`${todo} not found`)
@@ -86,4 +88,6 @@ async function validateUser(userId: string, todoId: string) {
         LOG.warn(`Todo ${todoId} doesn't belong to User ${userId}!`)
         throw new Error('User not authorized to write/delete others Todo')
     }
+
+    LOG.info(`validated ok: user ${userId} 's todo: ${todoId}`)
 }
