@@ -5,7 +5,6 @@ import { DocumentClient } from 'aws-sdk/clients/dynamodb'
 
 import { TodoItem } from '../models/TodoItem'
 import { TodoUpdate } from '../models/TodoUpdate'
-import { UpdateTodoRequest } from '../requests/UpdateTodoRequest';
 import { createLogger } from '../utils/logger'
 
 const XAWS = AWSXRay.captureAWS(AWS)
@@ -73,7 +72,7 @@ export class DBAccess {
       ReturnValues: 'ALL_NEW'
     }).promise()
 
-    LOG.info(`updated todo ${todoId} attachment url ${url}`)
+    LOG.info(`updated todo ${todoId} attachment url ${url}, result: ${result}`)
   }
 
   async getAllTodos(userId: string): Promise<TodoItem[]> {
@@ -114,6 +113,8 @@ export class DBAccess {
         ":done": todoUpdate.done
       }
     }).promise()
+
+    LOG.info(`update result: ${result}`)
   }
 }
 
